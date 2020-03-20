@@ -24,7 +24,7 @@ public class ProfileSerializer extends StdSerializer<Profile> {
         jsonGenerator.writeStringField("id", profile.getProfile_id());
         jsonGenerator.writeObjectField("personalInfo", personalInfoMap(profile));
         jsonGenerator.writeObjectField("awardsAchieved", profile.getAwardsAchieved());
-//        jsonGenerator.writeObjectField("positions", profile.getPositions());
+        jsonGenerator.writeObjectField("positions", profile.getPositions());
         jsonGenerator.writeEndObject();
     }
 

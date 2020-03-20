@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pythia.za.data.dao.profiles.AwardAchieved;
+import pythia.za.data.dao.profiles.Position;
 import pythia.za.data.dao.profiles.Profile;
 import pythia.za.data.dao.profiles.ProfileRepo;
 import pythia.za.data.models.QueryRequest;
@@ -51,6 +53,8 @@ public class QueryController {
         ObjectMapper mapper = new ObjectMapper();
         SimpleModule module = new SimpleModule();
         module.addSerializer(Profile.class, new ProfileSerializer());
+        module.addSerializer(AwardAchieved.class, new AwardAchievedSerializer());
+        module.addSerializer(Position.class, new PositionSerializer());
         mapper.registerModule(module);
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         mapper.setDateFormat(df);

@@ -9,16 +9,16 @@ import java.time.LocalDateTime;
 @Table(name = "Positions")
 public class Position {
     @Id
-    @Column(name = "award_id")
+    @Column(name = "position_id")
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @JsonProperty("award_id")
-    private String award_id;
+    @JsonProperty("position_id")
+    private String position_id;
 
     @Column(name = "profile_id")
-    @JsonProperty("profile_id")
+//    @JsonProperty("profile_id")
     private String profile_id;
 
-    @Column(name = "clubPosition")
+    @Column(name = "club_position")
     @JsonProperty("clubPosition")
     private String clubPosition;
 
@@ -34,7 +34,31 @@ public class Position {
     @JsonProperty("dateEnded")
     private LocalDateTime dateEnded;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
+    public String getPosition_id() {
+        return position_id;
+    }
+
+    public String getProfile_id() {
+        return profile_id;
+    }
+
+    public String getClubPosition() {
+        return clubPosition;
+    }
+
+    public String getClub() {
+        return club;
+    }
+
+    public LocalDateTime getDateStarted() {
+        return dateStarted;
+    }
+
+    public LocalDateTime getDateEnded() {
+        return dateEnded;
+    }
+
+    //    @ManyToOne(fetch = FetchType.LAZY)
 ////    @JoinColumn(name = "profile_id")
 //    private Profile profile;
 

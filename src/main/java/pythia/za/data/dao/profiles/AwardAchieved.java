@@ -40,4 +40,20 @@ public class AwardAchieved {
                 ", dateAchieved=" + dateAchieved +
                 '}';
     }
+
+    public String getProfile_id() {
+        return profile_id;
+    }
+
+    public String getAward_id() {
+        return award_id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public LocalDateTime getDateAchieved() {
+        return dateAchieved;
+    }
 }
