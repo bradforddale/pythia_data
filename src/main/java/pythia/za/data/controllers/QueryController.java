@@ -32,7 +32,6 @@ public class QueryController {
     @CrossOrigin
     public ResponseEntity profilesQuery(@RequestBody QueryRequest query) {
         if (query.getOperation() != null) {
-            System.out.println(queryService.getAll());
             switch (query.getOperation()) {
                 case "getAll": {
                     List<Profile> list = new ArrayList<Profile>();

@@ -6,6 +6,9 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import pythia.za.data.dao.profiles.AwardAchieved;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class AwardAchievedSerializer extends StdSerializer<AwardAchieved> {
     public AwardAchievedSerializer() {
@@ -21,7 +24,7 @@ public class AwardAchievedSerializer extends StdSerializer<AwardAchieved> {
         jsonGenerator.writeStartObject();
         jsonGenerator.writeStringField("id", award.getAward_id());
         jsonGenerator.writeStringField("description", award.getDescription());
-        jsonGenerator.writeStringField("dateAchieved", award.getDateAchieved().toString());
+        jsonGenerator.writeStringField("dateAchieved", DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).format(award.getDateAchieved()));
         jsonGenerator.writeEndObject();
     }
 }

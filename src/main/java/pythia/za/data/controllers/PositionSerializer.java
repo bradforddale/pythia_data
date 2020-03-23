@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import pythia.za.data.dao.profiles.Position;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class PositionSerializer extends StdSerializer<Position> {
     public PositionSerializer() {
@@ -22,8 +24,8 @@ public class PositionSerializer extends StdSerializer<Position> {
         jsonGenerator.writeStringField("id", position.getPosition_id());
         jsonGenerator.writeStringField("clubPosition", position.getClubPosition());
         jsonGenerator.writeStringField("club", position.getClub());
-        jsonGenerator.writeStringField("dateStarted", position.getDateStarted().toString());
-        jsonGenerator.writeStringField("dateEnded", position.getDateEnded().toString());
+        jsonGenerator.writeStringField("dateStarted", DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).format(position.getDateStarted()));
+        jsonGenerator.writeStringField("dateEnded", DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).format(position.getDateStarted()));
         jsonGenerator.writeEndObject();
     }
 }
