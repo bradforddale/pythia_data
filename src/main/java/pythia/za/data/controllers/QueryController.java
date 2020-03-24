@@ -33,14 +33,8 @@ public class QueryController {
     public ResponseEntity profilesQuery(@RequestBody QueryRequest query) {
         if (query.getOperation() != null) {
             switch (query.getOperation()) {
-                case "getAll": {
-                    List<Profile> list = new ArrayList<Profile>();
-                    profileRepo.findAll().forEach((Profile e) -> list.add(e));
-
-
-
-                    return new ResponseEntity(serializeListOfProfiles(list), HttpStatus.OK);
-                }
+                case "getAll": return new ResponseEntity(queryService.getAll(), HttpStatus.OK);
+                case "get": return new ResponseEntity(queryService.get((String)query.getRequestObj()), HttpStatus.OK);
                 default: return new ResponseEntity(new QueryResult(null, "Request operation is invalid ", null), HttpStatus.BAD_REQUEST);
             }
         } else {
@@ -48,22 +42,5 @@ public class QueryController {
         }
     }
 
-    private String serializeListOfProfiles(List<Profile> list) {
-        ObjectMapper mapper = new ObjectMapper();
-        SimpleModule module = new SimpleModule();
-        module.addSerializer(Profile.class, new ProfileSerializer());
-        module.addSerializer(AwardAchieved.class, new AwardAchievedSerializer());
-        module.addSerializer(Position.class, new PositionSerializer());
-        mapper.registerModule(module);
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        mapper.setDateFormat(df);
-        try {
-            System.out.println(mapper.writeValueAsString(list));
-            String json = mapper.writeValueAsString(list);
-            return json;
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            return "";
-        }
-    }
+
 }
