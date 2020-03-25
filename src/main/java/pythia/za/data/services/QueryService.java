@@ -1,5 +1,6 @@
 package pythia.za.data.services;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pythia.za.data.dao.profiles.Profile;
@@ -28,5 +29,18 @@ public class QueryService {
         } else {
             return new QueryResult(null, "Profile with id " + id +  " not found", null);
         }
+    }
+
+    public QueryResult create(JsonNode requestObj) {
+        Profile p = new Profile(requestObj.at("/id").textValue(),
+                requestObj.at("/personalInfo/fullname").textValue(),
+                requestObj.at("/personalInfo/cell").textValue(),
+                requestObj.at("/personalInfo/email").textValue());
+        return create(p);
+    }
+
+    public QueryResult create(Profile p) {
+        profileRepo.save(p);
+        return new QueryResult((new SerializerService<Profile>()).serialize(p), "Successfully created a profile with id " + p.getProfile_id(), null);
     }
 }

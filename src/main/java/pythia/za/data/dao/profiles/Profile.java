@@ -49,8 +49,14 @@ public class Profile implements Serializable {
         }
 
         public Profile() {
-                this.profile_id="12334";
-                this.fullname = "hi BICH";
+                this("1234", "NON_ENTITY", "0", "0");
+        }
+
+        public Profile(String profile_id, String fullname, String cell, String email) {
+                this.profile_id = profile_id;
+                this.fullname = fullname;
+                this.cell = cell;
+                this.email = email;
         }
 
         public String getProfile_id() {
