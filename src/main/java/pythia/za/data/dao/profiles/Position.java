@@ -58,8 +58,16 @@ public class Position {
         return dateEnded;
     }
 
-    //    @ManyToOne(fetch = FetchType.LAZY)
-////    @JoinColumn(name = "profile_id")
-//    private Profile profile;
+    public Position() {
+        this("1234", "-1", "NOT_A_POSITION","NOT_A_CLUB", null, null);
+    }
 
+    public Position(String profile_id, String position_id, String clubPosition, String club, LocalDateTime dateStarted, LocalDateTime dateEnded) {
+        this.position_id = position_id;
+        this.profile_id = profile_id;
+        this.clubPosition = clubPosition;
+        this.club = club;
+        this.dateStarted = dateStarted;
+        this.dateEnded = dateEnded;
+    }
 }

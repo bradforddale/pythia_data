@@ -26,10 +26,16 @@ public class AwardAchieved {
     @JsonProperty("dateAchieved")
     private LocalDateTime dateAchieved;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-////    @JoinColumn(name = "profile_id")
-//    private Profile profile;
+    public AwardAchieved() {
+        this("1234", "-1", "NOT_AN_AWARD", null);
+    }
 
+    public AwardAchieved(String profile_id, String award_id, String description, LocalDateTime dateAchieved) {
+        this.profile_id = profile_id;
+        this.award_id = award_id;
+        this.description = description;
+        this.dateAchieved = dateAchieved;
+    }
 
     @Override
     public String toString() {

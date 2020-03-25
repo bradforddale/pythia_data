@@ -26,6 +26,8 @@ public class QueryController {
                     case "getAll": return new ResponseEntity(queryService.getAll(), HttpStatus.OK);
                     case "get": return new ResponseEntity(queryService.get((String)query.getRequestObj()), HttpStatus.OK);
                     case "create": return new ResponseEntity(queryService.create(getJson(query.getRequestObj())), HttpStatus.OK);
+                    case "update": return new ResponseEntity(queryService.update(getJson(query.getRequestObj())), HttpStatus.OK);
+                    case "delete": return new ResponseEntity(queryService.delete((String)query.getRequestObj()), HttpStatus.OK);
                     default: return new ResponseEntity(new QueryResult(null, "Request operation is invalid ", null), HttpStatus.BAD_REQUEST);
                 }
             } else {
@@ -35,8 +37,6 @@ public class QueryController {
         catch (JsonProcessingException e) {
             e.printStackTrace();
             return new ResponseEntity(new QueryResult(null, "requestObj could not be parsed properly", null), HttpStatus.BAD_REQUEST);
-        } finally {
-            System.out.println("Done");
         }
     }
 

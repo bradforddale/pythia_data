@@ -83,23 +83,24 @@ public class Profile implements Serializable {
                 return positions;
         }
 
-        //        @Column(name = "creation_time", nullable = false)
-//        @Type(type = "org.jadira.usertype.dateandtime.threeten.PersistentZonedDateTime")
-//        private ZonedDateTime creationTime;
-//
-//        @Column(name = "description", length = 500)
-//        private String description;
-//
-//        @Column(name = "modification_time")
-//        @Type(type = "org.jadira.usertype.dateandtime.threeten.PersistentZonedDateTime")
-//        private ZonedDateTime modificationTime;
-//
-//        @Column(name = "title", nullable = false, length = 100)
-//        private String title;
-//
-//        @Version
-//        private long version;
 
-        //The constructor, builder, and other methods are omitted
+        public void setFullname(String fullname) {
+                this.fullname = fullname;
+        }
 
+        public void setCell(String cell) {
+                this.cell = cell;
+        }
+
+        public void setEmail(String email) {
+                this.email = email;
+        }
+
+        public void setAwardsAchieved(List<AwardAchieved> awardsAchieved) {
+                this.awardsAchieved = awardsAchieved;
+        }
+
+        public void setPositions(List<Position> positions) {
+                this.positions = positions;
+        }
 }
