@@ -1,23 +1,13 @@
 package pythia.za.data.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pythia.za.data.dao.profiles.AwardAchieved;
-import pythia.za.data.dao.profiles.Position;
-import pythia.za.data.dao.profiles.Profile;
 import pythia.za.data.dao.profiles.ProfileRepo;
 import pythia.za.data.models.QueryRequest;
 import pythia.za.data.models.QueryResult;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
+import pythia.za.data.services.QueryService;
 
 @RestController
 public class QueryController {

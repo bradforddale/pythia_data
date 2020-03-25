@@ -1,4 +1,4 @@
-package pythia.za.data.controllers;
+package pythia.za.data.services.serializers;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;

@@ -1,18 +1,11 @@
-package pythia.za.data.controllers;
+package pythia.za.data.services;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pythia.za.data.dao.profiles.AwardAchieved;
-import pythia.za.data.dao.profiles.Position;
 import pythia.za.data.dao.profiles.Profile;
 import pythia.za.data.dao.profiles.ProfileRepo;
 import pythia.za.data.models.QueryResult;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
